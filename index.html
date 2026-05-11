@@ -95,6 +95,15 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column">
+        <div class="columns is-centered has-text-centered" style="margin-bottom: 2rem;">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Abstract</h2>
+            <div class="content has-text-justified">
+              <p>Robotic surface-interaction tasks, such as spray painting or welding, require both accurate geometric planning and correct motion execution. While modern motion planners generate valid geometric paths, they often lack the expert motor patterns observed in human operators. Conversely, learning from demonstration often tightly couples execution to the specific training geometry, limiting transferability. We propose a modular framework that decouples geometric motion planning from execution-level expertise. Expert behavior is represented as a vocabulary of interpretable, atomic motor rules, such as velocity scaling and geometric proximity adaptations, that systematically modify a geometrically planned reference path. We utilize a transformer-based model to infer these rule parameters from kinematic trajectory data. We evaluate our approach through dynamic simulation on L-shaped and window-shaped objects, demonstrating that the model successfully extracts execution rules, including behavior conditioned on unobserved CAD features such as structural crossings. This approach allows foundational atomic rules to be transferred to unseen geometries, forming a basis for complex expert heuristics.</p>
+            </div>
+          </div>
+        </div>
+
         <figure class="image">
           <img src="./static/images/pipeline_overview.png" alt="Pipeline Overview">
         </figure>
