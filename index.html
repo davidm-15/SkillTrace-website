@@ -2,8 +2,8 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <meta name="description" content="SkillTrace">
-  <meta name="keywords" content="SkillTrace">
+  <meta name="description" content="SkillTrace: Learning Transferable Motor Skills for Geometry-Aware Robotic Surface Tasks">
+  <meta name="keywords" content="SkillTrace, skill injection, robot learning, spray painting, motion planning, imitation learning">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SkillTrace</title>
 
@@ -24,6 +24,45 @@
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
+
+  <style>
+    .venue-badge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    .venue-badge img {
+      height: 48px;
+    }
+    .venue-text {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #363636;
+    }
+    .method-block {
+      margin-bottom: 2rem;
+    }
+    .method-block h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+      color: #363636;
+    }
+    .results-table {
+      font-size: 0.95rem;
+    }
+    .bibtex-block pre {
+      background: #f5f5f5;
+      border-radius: 4px;
+      padding: 1.25rem;
+      font-size: 0.85rem;
+      text-align: left;
+      overflow-x: auto;
+    }
+  </style>
 </head>
 <body>
 
@@ -38,52 +77,70 @@
   <div class="navbar-menu">
     <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
       <a class="navbar-item" href="#">
-        <span class="icon">
-          <i class="fas fa-home"></i>
-        </span>
+        <span class="icon"><i class="fas fa-home"></i></span>
       </a>
     </div>
   </div>
 </nav>
 
 
+<!-- ─── Hero / Title ──────────────────────────────────────────────────────── -->
 <section class="hero">
   <div class="hero-body">
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">Reusable Skill Injection: <br> Geometric Motion Plans with Human Motor Expertise</h1>
-          <div class="is-size-5 publication-authors">
-            <span class="author-block">
-              <a href="https://mdavid.cz/">Miroslav David</a>,</span>
-            <span class="author-block">
-              <a href="https://karlastepanova.cz/">Karla Stepanova</a>,</span>
-            <span class="author-block">
-              <a href="http://www.robertbabuska.com/">Robert Babuska</a></span>
+          <h1 class="title is-1 publication-title">Learning Transferable Motor Skills for Geometry-Aware Robotic Surface Tasks</h1>
+
+          <!-- Venue badge -->
+          <div class="venue-badge">
+            <img src="./static/images/icra2026_logo.png" alt="ICRA 2026">
+            <span class="venue-text">ICRA Workshop 2026</span>
           </div>
 
-          <div class="column has-text-centered">
+          <!-- Authors -->
+          <div class="is-size-5 publication-authors" style="margin-top: 1rem;">
+            <span class="author-block">
+              <a href="https://mdavid.cz/">Miroslav David</a><sup>1</sup>,&nbsp;</span>
+            <span class="author-block">
+              <a href="https://karlastepanova.cz/">Karla Stepanova</a><sup>1</sup>,&nbsp;</span>
+            <span class="author-block">
+              <a href="http://www.robertbabuska.com/">Robert Babuska</a><sup>1,2</sup></span>
+          </div>
+
+          <!-- Affiliations -->
+          <div class="is-size-6" style="margin-top: 0.5rem; color: #555;">
+            <span><sup>1</sup> Czech Institute of Informatics, Robotics, and Cybernetics (CIIRC), Czech Technical University in Prague</span><br>
+            <span><sup>2</sup> Cognitive Robotics, Faculty of 3mE, Delft University of Technology</span>
+          </div>
+
+          <!-- Links -->
+          <div class="column has-text-centered" style="margin-top: 1rem;">
             <div class="publication-links">
               <span class="link-block">
                 <a href="#"
                    class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <i class="fas fa-file-pdf"></i>
-                  </span>
+                  <span class="icon"><i class="fas fa-file-pdf"></i></span>
                   <span>Paper</span>
                 </a>
               </span>
               <span class="link-block">
                 <a href="https://github.com/davidm-15/SkillTrace"
                    class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <i class="fab fa-github"></i>
-                  </span>
+                  <span class="icon"><i class="fab fa-github"></i></span>
                   <span>Code</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="./static/poster.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-chalkboard"></i></span>
+                  <span>Poster</span>
                 </a>
               </span>
             </div>
           </div>
+
         </div>
       </div>
     </div>
@@ -91,40 +148,221 @@
 </section>
 
 
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered">
-      <div class="column">
-        <div class="columns is-centered has-text-centered" style="margin-bottom: 2rem;">
-          <div class="column is-four-fifths">
-            <h2 class="title is-3">Abstract</h2>
-            <div class="content has-text-justified">
-              <p>Robotic surface-interaction tasks, such as spray painting or welding, require both accurate geometric planning and correct motion execution. While modern motion planners generate valid geometric paths, they often lack the expert motor patterns observed in human operators. Conversely, learning from demonstration often tightly couples execution to the specific training geometry, limiting transferability. We propose a modular framework that decouples geometric motion planning from execution-level expertise. Expert behavior is represented as a vocabulary of interpretable, atomic motor rules, such as velocity scaling and geometric proximity adaptations, that systematically modify a geometrically planned reference path. We utilize a transformer-based model to infer these rule parameters from kinematic trajectory data. We evaluate our approach through dynamic simulation on L-shaped and window-shaped objects, demonstrating that the model successfully extracts execution rules, including behavior conditioned on unobserved CAD features such as structural crossings. This approach allows foundational atomic rules to be transferred to unseen geometries, forming a basis for complex expert heuristics.</p>
-            </div>
-          </div>
-        </div>
-
-        <figure class="image">
-          <img src="./static/images/pipeline_overview.png" alt="Pipeline Overview">
-        </figure>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<section class="section">
+<!-- ─── Teaser Video ──────────────────────────────────────────────────────── -->
+<section class="section" style="padding-top: 0;">
   <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3 has-text-centered">Demo</h2>
         <div class="publication-video-local">
           <video controls autoplay muted loop width="100%">
-            <source src="./static/videos/windows.mkv" type="video/x-matroska">
-            Your browser does not support this video format.
+            <source src="./static/videos/windows.mp4" type="video/mp4">
+            Your browser does not support the video tag.
           </video>
         </div>
+        <p class="has-text-centered is-size-6" style="margin-top: 0.5rem; color: #777;">
+          Predicted trajectory replayed on a window-frame geometry. Green = straight segment, red = corner.
+        </p>
       </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ─── Abstract ─────────────────────────────────────────────────────────── -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Robotic surface-interaction tasks, such as spray painting or welding, require both accurate geometric planning and precise motion execution. While modern motion planners generate valid geometric paths, they often lack the expert motor patterns observed in human operators. Conversely, learning from demonstration often tightly couples task execution to the specific training geometry, limiting transferability. We propose a modular framework that decouples geometric motion planning from execution-level expertise. Expert behavior is represented as a vocabulary of interpretable, atomic motor rules — such as velocity scaling and orientation offsets — that systematically modify a geometrically planned reference path. We train a multimodal neural network to infer rule parameters jointly from kinematic trajectory data and CAD model geometry. We evaluate our approach through dynamic simulation on L-shaped and window-shaped objects, demonstrating that the model successfully extracts velocity and orientation rules across both topologies.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ─── Pipeline Overview ────────────────────────────────────────────────── -->
+<section class="section" style="background: #fafafa; padding: 2.5rem 1.5rem;">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Pipeline Overview</h2>
+    <figure class="image" style="margin-bottom: 1rem;">
+      <img src="./static/images/pipeline_overview.png" alt="Pipeline Overview">
+    </figure>
+    <p class="has-text-centered is-size-6" style="color: #777;">
+      From synthetic training data generation to skill transfer on novel geometric paths.
+    </p>
+  </div>
+</section>
+
+
+<!-- ─── Method ───────────────────────────────────────────────────────────── -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Method</h2>
+    <div class="content">
+
+      <div class="method-block">
+        <h3>Rule-Based Skill Representation</h3>
+        <p>
+          Expert skills are encoded as a structured vocabulary of <em>parametric transformations</em>.
+          A raw geometric path is decomposed into a sequence of spatial segments (straight edges, corners).
+          Each rule <em>ρ<sub>k</sub></em> consists of an activation condition evaluated against segment
+          geometry and a dynamic override parameterised by <em>θ<sub>k</sub></em>. The current vocabulary
+          includes two core rules: a <strong>velocity scaling rule</strong> that applies a continuous
+          speed multiplier (range 0.1–3.0×), and an <strong>orientation offset rule</strong> that
+          introduces a systematic tool tilt (quaternion offset) relative to the surface normal.
+        </p>
+      </div>
+
+      <div class="method-block">
+        <h3>Trajectory Refinement via Dynamic Simulation</h3>
+        <p>
+          To produce physically continuous trajectories, a pure-pursuit controller tracks a lookahead
+          pose along the reference path. The resulting wrench is integrated via RK4, modelling the
+          end-effector as a rigid body with mass, inertia, and viscous damping. Rules are injected as
+          force and torque modifiers, so the generated trajectories exhibit smooth momentum and
+          continuous velocities — matching what a real robot would produce.
+        </p>
+      </div>
+
+      <div class="method-block">
+        <h3>Multimodal Rule Inference Network</h3>
+        <p>
+          The model takes two inputs: a kinematic trajectory and the corresponding CAD mesh.
+          Trajectory orientations are mapped to a continuous <strong>6D rotation representation</strong>,
+          giving 10-dimensional per-timestep features (Δt, linear velocity 3D, rotation 6D).
+          These are processed by a <strong>1D convolutional encoder</strong> with masked average pooling.
+          The CAD model is sampled to a point cloud and encoded by a <strong>PointNet++ encoder</strong>.
+          Both embeddings are concatenated and passed through a shared MLP with two output heads:
+          a <em>regression head</em> for continuous rule parameters and a <em>classification head</em>
+          for segment type (straight / corner / none).
+        </p>
+      </div>
+
+      <div class="method-block">
+        <h3>Transfer to Unseen Geometries</h3>
+        <p>
+          At inference time, a sliding window with SVD-based curvature analysis automatically labels
+          each segment of a new, unseen path as <em>straight</em> or <em>corner</em> — no manual
+          annotation required. The inferred rules are then injected into their corresponding segment
+          types during simulation, yielding a refined trajectory that preserves geometric structure
+          while incorporating the expert's motor strategies.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ─── Results ──────────────────────────────────────────────────────────── -->
+<section class="section" style="background: #fafafa; padding: 2.5rem 1.5rem;">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Results</h2>
+
+    <div class="content">
+      <p>
+        We evaluate rule classification and parameter regression on two simulated datasets:
+        <strong>L-shaped</strong> geometries (10,000 trajectories, 8k/1k/1k split) and
+        <strong>window-frame</strong> geometries (1,000 trajectories, 800/100/100 split).
+        Test sets use out-of-distribution parameter ranges to assess generalisation.
+      </p>
+
+      <!-- Results table -->
+      <div class="table-container results-table">
+        <table class="table is-bordered is-striped is-hoverable is-fullwidth">
+          <thead>
+            <tr>
+              <th>Geometry</th>
+              <th>Rule</th>
+              <th>F1-Score</th>
+              <th>MAE (regression)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td rowspan="2">L-shape</td>
+              <td>Velocity scaling</td>
+              <td>0.999</td>
+              <td>0.056 (dimensionless, range 0.1–3.0)</td>
+            </tr>
+            <tr>
+              <td>Orientation offset</td>
+              <td>0.999</td>
+              <td>0.020 rad</td>
+            </tr>
+            <tr>
+              <td rowspan="2">Window frame</td>
+              <td>Velocity scaling</td>
+              <td>1.000</td>
+              <td>0.131 (dimensionless)</td>
+            </tr>
+            <tr>
+              <td>Orientation offset</td>
+              <td>0.984</td>
+              <td>0.038 rad</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        The higher velocity-scaling MAE on window geometries (0.131 vs. 0.056) reflects the shorter,
+        more rapidly changing segments characteristic of window-frame paths. Finer segmentation
+        or segment-length normalisation is a planned improvement.
+      </p>
+    </div>
+
+    <!-- Scatter plot figure -->
+    <figure class="image" style="max-width: 600px; margin: 0 auto 1rem;">
+      <img src="./static/images/results_scatter.png"
+           alt="Predicted vs actual parameter values — 2×2 grid">
+    </figure>
+    <p class="has-text-centered is-size-6" style="color: #777;">
+      Predicted vs. actual values on the test set. Each subplot shows one geometry type:
+      L-shape straight (top-left), L-shape corner (top-right), window straight (bottom-left),
+      window corner (bottom-right). Blue circles: velocity scaling factor;
+      orange triangles: orientation offset (rad). Red dashed line = perfect prediction.
+    </p>
+  </div>
+</section>
+
+
+<!-- ─── BibTeX ───────────────────────────────────────────────────────────── -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">BibTeX</h2>
+    <div class="bibtex-block">
+      <pre><code>@inproceedings{david2026skilltrace,
+    title     = {Learning Transferable Motor Skills for Geometry-Aware Robotic Surface Tasks},
+    author    = {David, Miroslav and Stepanova, Karla and Babu{\v{s}}ka, Robert},
+  booktitle = {ICRA Workshop on Robot Learning and Skill Transfer},
+  year      = {2026},
+  address   = {Vienna, Austria}
+}</code></pre>
+    </div>
+  </div>
+</section>
+
+
+<!-- ─── Acknowledgments ──────────────────────────────────────────────────── -->
+<section class="section" style="background: #fafafa; padding: 2.5rem 1.5rem;">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Acknowledgments</h2>
+    <div class="content has-text-centered is-size-6" style="color: #555;">
+      <p>
+        This work was supported by the European Union's Horizon Europe research and innovation
+        programme under grant agreement No. 101214398 (ELLIOT). Views and opinions expressed
+        are those of the authors only and do not necessarily reflect those of the European Union
+        or the European Commission. This work was also supported by the Ministry of Education,
+        Youth and Sports of the Czech Republic through the e-INFRA CZ (ID: 90254). This research
+        was co-funded by the European Union under the project Robotics and Advanced Industrial
+        Production (reg. no. CZ.02.01.01/00/22_008/0004590).
+      </p>
     </div>
   </div>
 </section>
