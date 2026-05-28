@@ -30,17 +30,30 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 0.75rem;
       margin-top: 1rem;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.75rem;
     }
-    .venue-badge img {
-      height: 48px;
+    .venue-tag {
+      display: inline-block;
+      background-color: #0065BD;
+      color: #ffffff;
+      font-size: 1rem;
+      font-weight: 700;
+      padding: 0.35em 1.1em;
+      border-radius: 9999px;
+      letter-spacing: 0.04em;
     }
-    .venue-text {
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: #363636;
+    .logo-strip {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.75rem;
+    }
+    .logo-strip img {
+      height: 44px;
+      object-fit: contain;
     }
     .method-block {
       margin-bottom: 2rem;
@@ -94,8 +107,15 @@
 
           <!-- Venue badge -->
           <div class="venue-badge">
-            <img src="./static/images/icra2026_logo.png" alt="ICRA 2026">
-            <span class="venue-text">ICRA Workshop 2026</span>
+            <span class="venue-tag">ICRA 2026 Workshop</span>
+          </div>
+
+          <!-- Institution / funding logos -->
+          <div class="logo-strip">
+            <img src="./static/images/ciirc_logo.png" alt="CIIRC CTU Prague">
+            <img src="./static/images/icra2026_logo.png" alt="ICRA 2026 Vienna">
+            <img src="./static/images/elliot_logo.png" alt="ELLIOT – Horizon Europe">
+            <img src="./static/images/rop_logo.png" alt="ROP – Robotics and Advanced Industrial Production">
           </div>
 
           <!-- Authors -->
@@ -118,14 +138,21 @@
           <div class="column has-text-centered" style="margin-top: 1rem;">
             <div class="publication-links">
               <span class="link-block">
-                <a href="#"
+                <a href="https://arxiv.org/pdf/2605.24881"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon"><i class="fas fa-file-pdf"></i></span>
                   <span>Paper</span>
                 </a>
               </span>
               <span class="link-block">
-                <a href="https://github.com/davidm-15/SkillTrace"
+                <a href="https://arxiv.org/abs/2605.24881"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="ai ai-arxiv"></i></span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://github.com/davidm-15/geometry-aware-motor-skills"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon"><i class="fab fa-github"></i></span>
                   <span>Code</span>
@@ -337,12 +364,14 @@
   <div class="container is-max-desktop">
     <h2 class="title is-3 has-text-centered">BibTeX</h2>
     <div class="bibtex-block">
-      <pre><code>@inproceedings{david2026skilltrace,
-    title     = {Learning Transferable Motor Skills for Geometry-Aware Robotic Surface Tasks},
-    author    = {David, Miroslav and Stepanova, Karla and Babu{\v{s}}ka, Robert},
-  booktitle = {ICRA Workshop on Robot Learning and Skill Transfer},
-  year      = {2026},
-  address   = {Vienna, Austria}
+      <pre><code>@misc{david2026learningtransferablemotorskills,
+  title         = {Learning Transferable Motor Skills for Geometry-Aware Robotic Surface Tasks},
+  author        = {Miroslav David and Karla Stepanova and Robert Babuska},
+  year          = {2026},
+  eprint        = {2605.24881},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.RO},
+  url           = {https://arxiv.org/abs/2605.24881}
 }</code></pre>
     </div>
   </div>
